@@ -1,0 +1,25 @@
+<div>
+	{{#if Link}}
+		<span>Your File is Uploaded at:</span>
+		<a style="color:red;" href={{fileLink}}>{{fileLink}} </a>
+	{{/if}}
+</div>
+
+<form
+	action="/upload"
+	method="post"
+	style="
+				display: grid;
+				grid-template-columns: auto 1fr;
+				gap: 0.5rem;
+				max-width: 500px;
+				margin: 0 auto;
+			"
+	enctype="multipart/form-data"
+>
+	<label for="file">File:</label>
+	<input id="file" type="file" name="file" required />
+	<label for="password">password:</label>
+	<input id="password" type="password" name="password" />
+	<button style="grid-column: span 2" type="submit">Share</button>
+</form>
