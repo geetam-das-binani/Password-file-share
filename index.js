@@ -3,7 +3,7 @@ import { router } from "./routes/route.mjs";
 import { connect } from "./Database/Connection.mjs";
 import { engine } from 'express-handlebars';
 const app = express();
-connect();
+connect(); 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
  
