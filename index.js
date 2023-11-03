@@ -5,7 +5,7 @@ import { engine } from 'express-handlebars';
 const app = express();
 connect(); 
 app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
+app.set('view engine', 'handlebars'); 
  
 
 app.use(express.json())
