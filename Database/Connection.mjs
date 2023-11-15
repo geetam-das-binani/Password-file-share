@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-dotenv.config();
 
-const Url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@learnmongo.6pho3we.mongodb.net/`;
-export const connect = async () => {
+
+
+export const connect = async (username,password) => {
 	try {
-		await mongoose.connect(Url);
+		await mongoose.connect(`mongodb+srv://${username}:${password}@learnmongo.6pho3we.mongodb.net/`);
 		console.log("Succesfully connected to database");
 	} catch (e) {
 		console.log(e.message);

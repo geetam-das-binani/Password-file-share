@@ -7,7 +7,8 @@ dotenv.config();
 
 const PORT = process.env.PORT || 4501;
 const app = express();
-connect();
+
+connect(process.env.DB_USERNAME, process.env.DB_PASSWORD);
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 
