@@ -2,6 +2,9 @@ import express from "express";
 import { router } from "./routes/route.mjs";
 import { connect } from "./Database/Connection.mjs";
 import { engine } from "express-handlebars";
+import dotenv from "dotenv";
+dotenv.config();
+
 const PORT = process.env.PORT || 4501;
 const app = express();
 connect();
