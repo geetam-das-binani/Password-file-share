@@ -5,10 +5,10 @@ import { engine } from "express-handlebars";
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = process.env.PORT || 4501;
+const PORT = process.env.PORT || 4500;
 const app = express();
 
-connect(process.env.DB_USERNAME, process.env.DB_PASSWORD);
+
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 
@@ -19,4 +19,10 @@ app.get("/", (req, res) => {
 });
 app.use("/", router);
 
-app.listen(PORT, () => console.log("Server is listening on port 4500"));
+Promise.all([connect(process.env.DB_USERNAME, process.env.DB_PASSWORD)])
+.then(data=>{
+  console.log('Successfully Connected');
+  app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
+
+})
+.catch(e=>console.log(e.message))
